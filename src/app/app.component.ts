@@ -21,7 +21,7 @@ export class AppComponent implements OnInit{
     this.router.events.forEach(item => {
       if (item instanceof NavigationEnd) {
         const gtmTag = {
-          event: `page visit ${item.url}`,
+          event: 'analytics',
           pageName: item.url
         };
 
