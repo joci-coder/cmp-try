@@ -13,21 +13,22 @@ import {GoogleTagManagerService} from 'angular-google-tag-manager'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private gtmService: GoogleTagManagerService,
-              private router: Router) {
+  constructor(
+    private gtmService: GoogleTagManagerService,
+    private router: Router) {
   }
 
   ngOnInit() {
     this.router.events.forEach(item => {
       if (item instanceof NavigationEnd) {
         const gtmTag = {
-          event: 'page',
+          event: `page visit ${item.url}`,
           pageName: item.url
-        };
+        }
 
-        this.gtmService.pushTag(gtmTag);
+        this.gtmService.pushTag(gtmTag)
       }
-    });
+    })
   }
 
 }

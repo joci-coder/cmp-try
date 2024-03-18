@@ -21,7 +21,7 @@ export class Subpage2Component implements OnInit {
     this.router.events.forEach(item => {
       if (item instanceof NavigationEnd) {
         const gtmTag = {
-          event: 'page',
+          event: `page visit ${item.url}`,
           pageName: item.url
         };
 
