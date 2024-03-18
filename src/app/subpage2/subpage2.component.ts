@@ -18,7 +18,7 @@ export class Subpage2Component implements OnInit {
   }
 
   ngOnInit() {
-    this.router.events.forEach(item => {
+    /*this.router.events.forEach(item => {
       if (item instanceof NavigationEnd) {
         const gtmTag = {
           event: `page visit ${item.url}`,
@@ -27,6 +27,6 @@ export class Subpage2Component implements OnInit {
 
         this.gtmService.pushTag(gtmTag);
       }
-    });
+    });*/
   }
 }

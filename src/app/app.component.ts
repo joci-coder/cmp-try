@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, OnInit} from '@angular/core'
+import {NavigationEnd, Router, RouterOutlet} from '@angular/router'
+import {GoogleTagManagerService} from 'angular-google-tag-manager'
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,24 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'cmp-try';
+
+  constructor(
+    private gtmService: GoogleTagManagerService,
+    private router: Router) {
+  }
+
+  ngOnInit() {
+    this.router.events.forEach(item => {
+      if (item instanceof NavigationEnd) {
+        const gtmTag = {
+          event: `page visit ${item.url}`,
+          pageName: item.url
+        };
+
+        this.gtmService.pushTag(gtmTag);
+      }
+    });
+  }
 }
