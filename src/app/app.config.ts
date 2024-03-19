@@ -6,9 +6,9 @@ import {GoogleTagManagerModule} from 'angular-google-tag-manager'
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes)/*,
+    provideRouter(routes),
     importProvidersFrom(GoogleTagManagerModule.forRoot({
       id: 'GTM-TSJX6CF4',
-    }))*/
+    }))
   ]
 }
