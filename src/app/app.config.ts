@@ -8,7 +8,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     importProvidersFrom(GoogleTagManagerModule.forRoot({
-      id: 'GTM-TNRX3P5T',
+      id: 'GTM-TSJX6CF4',
     }))
   ]
 }
