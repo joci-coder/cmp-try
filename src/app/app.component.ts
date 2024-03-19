@@ -13,12 +13,12 @@ export class AppComponent implements OnInit{
   title = 'cmp-try';
 
   constructor(
-    private gtmService: GoogleTagManagerService,
+    //private gtmService: GoogleTagManagerService,
     private router: Router) {
   }
 
   ngOnInit() {
-    this.router.events.forEach(item => {
+    /*this.router.events.forEach(item => {
       if (item instanceof NavigationEnd) {
         const gtmTag = {
           event: 'page',
@@ -27,6 +27,6 @@ export class AppComponent implements OnInit{
 
         this.gtmService.pushTag(gtmTag);
       }
-    });
+    });*/
   }
 }
